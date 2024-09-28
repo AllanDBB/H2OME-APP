@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "#F3E6D3",
     paddingHorizontal: 20,
   },
   image: {
@@ -122,14 +122,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   buttonActive: {
-    backgroundColor: "red",
+    backgroundColor: "#13ABCB",
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 25,
     marginHorizontal: 10,
   },
   buttonInactive: {
-    backgroundColor: "grey",
+    backgroundColor: "#215E83",
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 25,
@@ -142,13 +142,13 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 40,
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#CC4A36",
     borderRadius: 8,
     paddingHorizontal: 10,
     marginBottom: 10,
   },
   button: {
-    backgroundColor: "red",
+    backgroundColor: "#CC4A36",
     paddingVertical: 12,
     borderRadius: 25,
     marginTop: 10,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     marginTop: 10,
     textAlign: "center",
-    color: "grey",
+    color: "#215E83",
   },
 });
 

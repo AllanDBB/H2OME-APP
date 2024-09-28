@@ -5,20 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  ScrollView,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 
 const SearchComboBox: React.FC = () => {
-  const [isFocused, setIsFocused] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
 
   const handleCategoryChange = (itemValue: string) => {
     setSelectedCategory(itemValue);
@@ -26,21 +18,24 @@ const SearchComboBox: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => {}}>
-        <Picker
-          selectedValue={selectedCategory}
-          style={styles.picker}
-          onValueChange={handleCategoryChange}
-        >
-          <Picker.Item label="All" value="all" />
-          <Picker.Item label="Category 1" value="category1" />
-          <Picker.Item label="Category 2" value="category2" />
-          {/* Agrega más categorías según sea necesario */}
-        </Picker>
-      </TouchableOpacity>
-      <View style={styles.cardContainer}>
+      {/* Contenedor del picker */}
+      <Picker
+        selectedValue={selectedCategory}
+        style={styles.picker}
+        onValueChange={handleCategoryChange}
+      >
+        <Picker.Item label="All" value="all" />
+        <Picker.Item label="Category 1" value="category1" />
+        <Picker.Item label="Category 2" value="category2" />
+        {/* Agrega más categorías según sea necesario */}
+      </Picker>
+
+      {/* Contenedor de las tarjetas */}
+      <ScrollView contentContainerStyle={styles.cardContainer}>
         <TailwindCard />
-      </View>
+        <TailwindCard />
+        <TailwindCard />
+      </ScrollView>
     </View>
   );
 };
@@ -48,17 +43,17 @@ const SearchComboBox: React.FC = () => {
 const TailwindCard: React.FC = () => {
   return (
     <View style={styles.card}>
-      <View style={styles.header}>
-        {/* Este div se utiliza para el efecto de gradiente */}
-        <View style={styles.gradient} />
-      </View>
+      {/* Encabezado de la tarjeta */}
+      <View style={styles.header} />
+      {/* Contenido principal */}
       <View style={styles.content}>
-        <Text style={styles.title}>Tailwind card</Text>
+        <Text style={styles.title}>Martian Card</Text>
         <Text style={styles.description}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc felis
           ligula.
         </Text>
       </View>
+      {/* Pie de la tarjeta */}
       <View style={styles.footer}>
         <TouchableOpacity
           onPress={() => {
@@ -66,7 +61,7 @@ const TailwindCard: React.FC = () => {
           }}
           style={styles.button}
         >
-          <Text style={styles.buttonText}>Read More</Text>
+          <Text style={styles.buttonText}>Explore</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -76,90 +71,66 @@ const TailwindCard: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#E5E7EB", // Color de fondo para el contenedor principal
+    backgroundColor: "#D8B4A0", // Color marrón rojizo de fondo marciano
+    paddingVertical: 20,
   },
   picker: {
-    height: 40,
-    width: 120,
-    backgroundColor: "#f3f3f4",
-    borderRadius: 8,
-    marginBottom: 16,
-    color: "#0d0c22",
-  },
-  input: {
-    height: 40,
-    width: 190,
-    paddingLeft: 16,
-    backgroundColor: "#f3f3f4",
-    borderRadius: 8,
-    color: "#0d0c22",
-  },
-  inputFocus: {
-    borderColor: "rgba(0, 48, 73, 0.4)",
-    backgroundColor: "#fff",
-    shadowColor: "rgb(0 48 73 / 10%)",
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 4,
+    height: 50,
+    width: "90%",
+    alignSelf: "center",
+    backgroundColor: "#BF4F1E", // Color más oscuro para el picker
+    borderRadius: 12,
+    marginBottom: 20,
+    borderColor: "#D89D8D",
+    borderWidth: 1,
+    color: "#FFFFFF", // Color del texto del picker en blanco
   },
   cardContainer: {
-    marginTop: 30, // Espacio entre el campo de búsqueda y la tarjeta
+    alignItems: "center", // Centrar las tarjetas
+    paddingBottom: 20, // Espacio inferior para el scroll
   },
   card: {
-    width: "80%",
-    backgroundColor: "white",
-    borderRadius: 20,
+    width: "90%",
+    backgroundColor: "#FFFAF0", // Fondo claro para las tarjetas
+    borderRadius: 15,
+    marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 5,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowOpacity: 0.2, // Aumentar la opacidad de la sombra
+    shadowRadius: 10,
+    elevation: 4, // Sombra para dar profundidad
+    borderColor: "#BF4F1E", // Color de borde similar al picker
+    borderWidth: 1, // Agregar borde
   },
   header: {
-    marginTop: -30,
-    marginHorizontal: 16,
-    height: 120,
-    overflow: "hidden",
-    borderRadius: 20,
-    backgroundColor: "#4B5563",
-  },
-  gradient: {
-    flex: 1,
-    backgroundColor: "transparent",
-    borderRadius: 20,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 6,
-    },
-    shadowOpacity: 0.37,
-    shadowRadius: 7.49,
-    elevation: 12,
+    height: 150,
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    backgroundColor: "#BF4F1E", // Color de fondo del encabezado
   },
   content: {
-    padding: 24,
+    padding: 20,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 8,
-    color: "#1A202C",
+    color: "#1A202C", // Color del texto del título
+    marginBottom: 10,
   },
   description: {
     fontSize: 16,
-    color: "#4A5568",
+    color: "#4A5568", // Texto secundario
+    lineHeight: 22,
   },
   footer: {
-    paddingHorizontal: 24,
-    paddingBottom: 16,
+    paddingHorizontal: 20,
+    paddingBottom: 20,
   },
   button: {
-    backgroundColor: "#4299E1",
+    backgroundColor: "#D89D8D", // Botón en tono claro
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 10,
@@ -167,17 +138,16 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: 5,
     },
     shadowOpacity: 0.29,
-    shadowRadius: 4.65,
-    elevation: 7,
+    shadowRadius: 6.65,
+    elevation: 7, // Sombras para dar efecto de clic
   },
   buttonText: {
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: "bold",
-    textTransform: "uppercase",
-    color: "white",
+    color: "white", // Texto del botón en blanco
   },
 });
 

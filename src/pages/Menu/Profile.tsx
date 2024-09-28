@@ -6,11 +6,11 @@ const ProfileScreen: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.profileHeader}>
         <Image
-          source={require("../../../assets/profile.jpg")} // Corrección aquí
+          source={require("../../../assets/profile.jpg")}
           style={styles.profileImage}
         />
         <TouchableOpacity style={styles.editButton}>
-          <Text style={styles.editButtonText}>Edit</Text>
+          <Text style={styles.editButtonText}>Edit Profile</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.profileDetails}>
@@ -37,49 +37,75 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
     padding: 20,
+    backgroundColor: "#D8B4A0",
   },
   profileHeader: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 30,
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    elevation: 5,
+    width: "100%", // Ocupa todo el ancho disponible
   },
   profileImage: {
     width: 120,
     height: 120,
     borderRadius: 60,
-    marginRight: 20,
+    borderWidth: 3,
+    borderColor: "#3498db",
+    marginRight: 20, // Espacio entre la imagen y el botón
   },
   editButton: {
     backgroundColor: "#3498db",
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 25,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
   },
   editButtonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "bold",
+    textTransform: "uppercase",
   },
   profileDetails: {
     flexDirection: "row",
     justifyContent: "space-between",
+    backgroundColor: "#fff",
+    padding: 20,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    elevation: 5,
+    width: "100%",
   },
   column: {
     flex: 1,
-    alignItems: "flex-start",
+    paddingHorizontal: 10,
   },
   label: {
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 18,
+    fontWeight: "600",
     marginBottom: 5,
     color: "#333",
   },
   value: {
     fontSize: 16,
-    marginBottom: 10,
-    color: "#666",
+    color: "#555",
+    marginBottom: 15,
   },
 });
 

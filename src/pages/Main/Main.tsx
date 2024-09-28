@@ -16,7 +16,7 @@ const Main: React.FC<Props> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome! </Text>
+      <Text style={styles.title}>Welcome to Mars!</Text>
       <Image
         source={require("./../../../assets/logo.png")}
         style={styles.image}
@@ -30,28 +30,39 @@ const Main: React.FC<Props> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#F3E6D3",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    padding: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     marginBottom: 20,
+    fontWeight: "bold",
+    color: "#081D33",
   },
   image: {
     width: 250,
     height: 250,
     marginBottom: 20,
+    borderRadius: 15,
   },
   button: {
-    backgroundColor: "red",
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: "#13ABCB",
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
   buttonText: {
     color: "white",
-    fontSize: 16,
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
 
